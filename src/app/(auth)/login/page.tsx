@@ -23,8 +23,9 @@ export default function LoginPage() {
 
         const supabase = createClient()
 
-        const rawOrigin = typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000'
-        const origin = rawOrigin.includes('0.0.0.0') ? 'http://localhost:3000' : rawOrigin
+        const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+        const rawOrigin = typeof window !== 'undefined' ? window.location.origin : siteUrl
+        const origin = rawOrigin.includes('0.0.0.0') ? siteUrl : rawOrigin
 
         const { error: authError } = await supabase.auth.signInWithOtp({
             email,
@@ -49,8 +50,9 @@ export default function LoginPage() {
 
         const supabase = createClient()
 
-        const rawOrigin = typeof window !== 'undefined' ? window.location.origin : 'http://localhost:3000'
-        const origin = rawOrigin.includes('0.0.0.0') ? 'http://localhost:3000' : rawOrigin
+        const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+        const rawOrigin = typeof window !== 'undefined' ? window.location.origin : siteUrl
+        const origin = rawOrigin.includes('0.0.0.0') ? siteUrl : rawOrigin
 
         const { error: authError } = await supabase.auth.signInWithOtp({
             email: sentToEmail,
