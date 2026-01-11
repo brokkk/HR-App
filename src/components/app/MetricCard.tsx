@@ -23,7 +23,7 @@ export function MetricCard({
     badge,
 }: MetricCardProps) {
     return (
-        <div className="flex flex-col justify-center gap-1 rounded-[24px] border border-border-subtle bg-white p-5 shadow-soft">
+        <div className="flex flex-col justify-center gap-1 rounded-[24px] border border-border-subtle bg-bg-surface p-5 shadow-soft">
             <div className={`mb-2 flex h-8 w-8 items-center justify-center rounded-full ${iconBgColor} ${iconColor}`}>
                 <Icon className="w-[18px] h-[18px]" />
             </div>

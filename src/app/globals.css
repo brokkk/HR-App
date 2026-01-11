@@ -31,6 +31,35 @@
   --color-status-info-text: #026AA2;
 }
 
+/* Dark Theme - Google Style */
+[data-theme="dark"] {
+  /* Brand Colors */
+  --color-primary: #8AB4F8;
+  --color-primary-dark: #AECBFA;
+  --color-accent-lime: #C4E64D;
+  
+  /* Backgrounds - Google gray tones */
+  --color-bg-page: #121212;
+  --color-bg-surface: #1e1e1e;
+  
+  /* Text */
+  --color-text-main: #e8eaed;
+  --color-text-sub: #9aa0a6;
+  
+  /* Borders */
+  --color-border-subtle: #3c4043;
+  
+  /* Status Colors - darker backgrounds */
+  --color-status-success-bg: #1b3d2f;
+  --color-status-success-text: #81c995;
+  --color-status-warning-bg: #3d2e1f;
+  --color-status-warning-text: #fdd663;
+  --color-status-danger-bg: #3d1f1f;
+  --color-status-danger-text: #f28b82;
+  --color-status-info-bg: #1f3d5c;
+  --color-status-info-text: #8ab4f8;
+}
+
 @theme inline {
   /* Colors */
   --color-primary: var(--color-primary);

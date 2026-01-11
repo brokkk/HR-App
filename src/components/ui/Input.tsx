@@ -21,7 +21,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
                     )}
                     <input
                         ref={ref}
-                        className={`w-full bg-white border border-border-subtle text-text-main placeholder-text-sub text-sm rounded-full py-2.5 ${Icon ? 'pl-10' : 'pl-4'} pr-4 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all ${className}`}
+                        className={`w-full bg-bg-surface border border-border-subtle text-text-main placeholder-text-sub text-sm rounded-full py-2.5 ${Icon ? 'pl-10' : 'pl-4'} pr-4 focus:ring-2 focus:ring-primary/20 focus:border-primary outline-none transition-all ${className}`}
                         {...props}
                     />
                 </div>
@@ -49,7 +49,7 @@ export function SearchInput({ className = '', ...props }: SearchInputProps) {
             </svg>
             <input
                 type="text"
-                className={`w-full pl-11 pr-4 py-2.5 rounded-full border border-border-subtle bg-white text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary placeholder-text-sub shadow-sm transition-all ${className}`}
+                className={`w-full pl-11 pr-4 py-2.5 rounded-full border border-border-subtle bg-bg-surface text-sm focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary placeholder-text-sub shadow-sm transition-all ${className}`}
                 {...props}
             />
         </div>

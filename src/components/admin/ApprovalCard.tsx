@@ -25,7 +25,7 @@ export function ApprovalCard({
     onReject,
 }: ApprovalCardProps) {
     return (
-        <div className="p-4 rounded-xl border border-border-subtle hover:border-primary/30 bg-bg-page/30 hover:bg-white hover:shadow-sm transition-all cursor-pointer group">
+        <div className="p-4 rounded-xl border border-border-subtle hover:border-primary/30 bg-bg-page/30 hover:bg-bg-surface hover:shadow-sm transition-all cursor-pointer group">
             <div className="flex justify-between items-start mb-2">
                 <div className="flex items-center gap-2">
                     <div className={`p-1.5 rounded-lg ${iconBgColor} ${iconColor}`}>
@@ -33,7 +33,7 @@ export function ApprovalCard({
                     </div>
                     <span className="text-sm font-bold text-text-main">{type}</span>
                 </div>
-                <span className="text-[10px] text-text-sub font-medium bg-white px-2 py-0.5 rounded border border-border-subtle">
+                <span className="text-[10px] text-text-sub font-medium bg-bg-surface px-2 py-0.5 rounded border border-border-subtle">
                     {status}
                 </span>
             </div>

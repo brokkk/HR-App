@@ -134,14 +134,14 @@ export function DateRangeFilter({ value, onChange, showPresets = true }: DateRan
                         <button
                             onClick={() => setShowDropdown(!showDropdown)}
                             className="flex items-center gap-2 px-3 py-2 text-sm font-medium text-text-main 
-                                       bg-white border border-border-subtle rounded-lg hover:bg-bg-page"
+                                       bg-bg-surface border border-border-subtle rounded-lg hover:bg-bg-page"
                         >
                             <Calendar className="w-4 h-4 text-text-sub" />
                             <span>{value ? 'Custom' : 'Semua'}</span>
                         </button>
 
                         {showDropdown && (
-                            <div className="absolute top-full left-0 mt-1 z-20 bg-white border border-border-subtle 
+                            <div className="absolute top-full left-0 mt-1 z-20 bg-bg-surface border border-border-subtle 
                                            rounded-lg shadow-lg py-1 min-w-[140px]">
                                 {(Object.keys(presetLabels) as Preset[]).map((preset) => (
                                     <button

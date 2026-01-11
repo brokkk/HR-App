@@ -5,8 +5,9 @@ import { Card } from '@/components/ui/Card'
 import { Avatar } from '@/components/ui/Avatar'
 import { Badge } from '@/components/ui/Badge'
 import { Button } from '@/components/ui/Button'
-import { Mail, Building, Calendar, LogOut, Save, Loader2, CheckCircle, Edit2, X } from 'lucide-react'
+import { Mail, Building, Calendar, LogOut, Save, Loader2, CheckCircle, Edit2, X, Sun, Moon } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
+import { useTheme } from '@/components/providers/ThemeProvider'
 
 interface ProfileData {
     id: string
@@ -28,6 +29,7 @@ export function ProfileClient({ initialProfile }: Props) {
     const [saving, setSaving] = useState(false)
     const [error, setError] = useState<string | null>(null)
     const [success, setSuccess] = useState(false)
+    const { theme, toggleTheme } = useTheme()
 
     const handleSave = async () => {
         const trimmed = fullName.trim()
@@ -175,6 +177,34 @@ export function ProfileClient({ initialProfile }: Props) {
                             <p className="text-sm font-medium text-text-main">{formatDate(profile.created_at)}</p>
                         </div>
                     </div>
+                </div>
+            </Card>
+
+            {/* Theme Toggle */}
+            <Card variant="bordered" className="p-4">
+                <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-3">
+                        {theme === 'dark' ? (
+                            <Moon className="w-5 h-5 text-text-sub" />
+                        ) : (
+                            <Sun className="w-5 h-5 text-text-sub" />
+                        )}
+                        <div>
+                            <p className="text-sm font-medium text-text-main">Appearance</p>
+                            <p className="text-xs text-text-sub">
+                                {theme === 'dark' ? 'Dark mode' : 'Light mode'}
+                            </p>
+                        </div>
+                    </div>
+                    <button
+                        onClick={toggleTheme}
+                        className="relative w-12 h-6 bg-border-subtle rounded-full transition-colors hover:bg-primary/20"
+                    >
+                        <span
+                            className={`absolute top-0.5 w-5 h-5 bg-primary rounded-full transition-transform ${theme === 'dark' ? 'left-6' : 'left-0.5'
+                                }`}
+                        />
+                    </button>
                 </div>
             </Card>
 

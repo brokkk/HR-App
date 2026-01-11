@@ -22,7 +22,7 @@ export function MobileNav() {
     const pathname = usePathname()
 
     return (
-        <nav className="fixed bottom-0 left-0 right-0 bg-white border-t border-border-subtle shadow-lg z-50">
+        <nav className="fixed bottom-0 left-0 right-0 bg-bg-surface border-t border-border-subtle shadow-lg z-50">
             <div className="max-w-[480px] mx-auto px-4 py-2">
                 <div className="flex justify-between items-center">
                     {navItems.map((item) => {

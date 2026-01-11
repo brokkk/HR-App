@@ -24,7 +24,7 @@ export function MobileHeader({
                     <p className="text-text-sub text-sm font-medium tracking-wide">{subtitle}</p>
                 </div>
                 <div className="flex items-center gap-4">
-                    <button className="relative flex h-10 w-10 items-center justify-center rounded-full bg-white border border-border-subtle shadow-sm transition hover:bg-gray-50">
+                    <button className="relative flex h-10 w-10 items-center justify-center rounded-full bg-bg-surface border border-border-subtle shadow-sm transition hover:bg-bg-page">
                         <Bell className="w-6 h-6 text-text-sub" />
                         <span className="absolute top-2 right-2.5 h-2 w-2 rounded-full bg-red-500 ring-2 ring-white" />
                     </button>

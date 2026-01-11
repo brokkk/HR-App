@@ -52,7 +52,7 @@ export function AdminSidebar() {
     const filteredItems = navItems.filter(item => !item.devOnly || isDev)
 
     return (
-        <aside className="hidden md:flex flex-col w-72 h-[calc(100vh-2rem)] m-4 bg-white rounded-2xl shadow-soft border border-border-subtle overflow-y-auto shrink-0">
+        <aside className="hidden md:flex flex-col w-72 h-[calc(100vh-2rem)] m-4 bg-bg-surface rounded-2xl shadow-soft border border-border-subtle overflow-y-auto shrink-0">
             {/* Logo */}
             <div className="p-6 flex items-center gap-3 mb-2">
                 <div className="w-10 h-10 rounded-full gradient-primary flex items-center justify-center text-white font-bold text-xl shadow-lg">

@@ -31,7 +31,7 @@ export function RequestItem({
     return (
         <button
             onClick={onClick}
-            className="group flex w-full items-center justify-between rounded-[20px] border border-border-subtle bg-white p-4 shadow-soft transition hover:shadow-md text-left"
+            className="group flex w-full items-center justify-between rounded-[20px] border border-border-subtle bg-bg-surface p-4 shadow-soft transition hover:shadow-md text-left"
         >
             <div className="flex items-center gap-3">
                 <div className={`flex h-10 w-10 items-center justify-center rounded-full ${iconBgColor} ${iconColor}`}>

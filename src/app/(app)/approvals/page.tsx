@@ -267,7 +267,7 @@ export default function ApprovalsPage() {
                             value={searchQuery}
                             onChange={(e) => setSearchQuery(e.target.value)}
                             className="w-full pl-10 pr-4 py-2.5 text-sm border border-border-subtle rounded-lg 
-                                       bg-white focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
+                                       bg-bg-surface focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary"
                         />
                     </div>
 

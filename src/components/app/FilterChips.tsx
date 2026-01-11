@@ -19,8 +19,8 @@ export function FilterChips({ options, selected, onChange, labels }: FilterChips
                         key={option}
                         onClick={() => onChange(option)}
                         className={`shrink-0 rounded-full px-4 py-2 text-sm font-semibold shadow-sm transition-colors ${isActive
-                            ? 'bg-text-main text-white shadow-md'
-                            : 'border border-border-subtle bg-white text-text-sub'
+                            ? 'bg-primary text-white shadow-md'
+                            : 'border border-border-subtle bg-bg-surface text-text-sub'
                             }`}
                     >
                         {displayLabel}

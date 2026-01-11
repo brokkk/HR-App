@@ -49,7 +49,7 @@ export function DateStrip({ selectedDate, onDateChange }: DateStripProps) {
     }
 
     return (
-        <div className="bg-white rounded-full p-1.5 shadow-sm border border-border-subtle flex items-center gap-1 overflow-x-auto max-w-full">
+        <div className="bg-bg-surface rounded-full p-1.5 shadow-sm border border-border-subtle flex items-center gap-1 overflow-x-auto max-w-full">
             <button
                 onClick={goBack}
                 className="p-2 rounded-full hover:bg-bg-page text-text-sub"
@@ -67,8 +67,8 @@ export function DateStrip({ selectedDate, onDateChange }: DateStripProps) {
                             key={date.toISOString()}
                             onClick={() => onDateChange(date)}
                             className={`flex flex-col items-center justify-center w-10 h-10 rounded-full text-xs font-medium transition-all ${isSelected
-                                    ? 'bg-primary text-white shadow-md'
-                                    : 'text-text-sub hover:bg-bg-page'
+                                ? 'bg-primary text-white shadow-md'
+                                : 'text-text-sub hover:bg-bg-page'
                                 }`}
                         >
                             <span className={`text-[10px] uppercase ${isSelected ? 'opacity-80' : ''}`}>{day}</span>
@@ -90,8 +90,8 @@ export function DateStrip({ selectedDate, onDateChange }: DateStripProps) {
             <button
                 onClick={goToToday}
                 className={`px-4 py-2 rounded-full text-xs font-bold transition-colors ${isToday(selectedDate)
-                        ? 'bg-primary text-white'
-                        : 'bg-bg-page text-text-main hover:bg-gray-200'
+                    ? 'bg-primary text-white'
+                    : 'bg-bg-page text-text-main hover:bg-gray-200'
                     }`}
             >
                 Today

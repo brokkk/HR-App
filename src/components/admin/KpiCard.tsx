@@ -24,7 +24,7 @@ export function KpiCard({
     badge,
 }: KpiCardProps) {
     return (
-        <div className="bg-white p-6 rounded-2xl border border-border-subtle shadow-soft hover:shadow-md transition-shadow">
+        <div className="bg-bg-surface p-6 rounded-2xl border border-border-subtle shadow-soft hover:shadow-md transition-shadow">
             <div className="flex justify-between items-start mb-4">
                 <div className={`p-2 rounded-xl ${iconBgColor} ${iconColor}`}>
                     <Icon className="w-6 h-6" />
