@@ -72,6 +72,7 @@ export default function ApprovalsPage() {
     const [activeTab, setActiveTab] = useState<'pending' | 'history'>('pending')
     const [kindFilter, setKindFilter] = useState('all')
     const [userRole, setUserRole] = useState<string | null>(null)
+    const [isAM, setIsAM] = useState(false)
 
     // Pagination
     const [page, setPage] = useState(1)
@@ -141,6 +142,15 @@ export default function ApprovalsPage() {
                 .eq('id', user.id)
                 .single()
             setUserRole(emp?.role || null)
+
+            // Check if user is AM of any active project
+            const { data: amProjects } = await supabase
+                .from('projects')
+                .select('id')
+                .eq('account_manager_id', user.id)
+                .eq('is_active', true)
+
+            setIsAM((amProjects || []).length > 0)
         }
     }, [supabase])
 
@@ -192,8 +202,8 @@ export default function ApprovalsPage() {
         })
     }
 
-    // Check if user has approval access
-    const hasApprovalAccess = userRole && ['lead', 'hr', 'owner'].includes(userRole)
+    // Check if user has approval access (including AM)
+    const hasApprovalAccess = (userRole && ['lead', 'hr', 'owner'].includes(userRole)) || isAM
 
     if (!hasApprovalAccess && !loading) {
         return (
