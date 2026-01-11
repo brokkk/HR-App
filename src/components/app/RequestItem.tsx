@@ -7,14 +7,18 @@ interface RequestItemProps {
     iconBgColor?: string
     iconColor?: string
     dateRange: string
-    status: 'pending' | 'approved' | 'rejected'
+    status: string
     onClick?: () => void
 }
 
-const statusConfig = {
-    pending: { variant: 'warning' as const, label: 'Pending' },
-    approved: { variant: 'success' as const, label: 'Approved' },
-    rejected: { variant: 'danger' as const, label: 'Rejected' },
+const statusConfig: Record<string, { variant: 'warning' | 'success' | 'danger' | 'info' | 'neutral', label: string }> = {
+    pending: { variant: 'warning', label: 'Pending' },
+    pending_am: { variant: 'warning', label: 'Menunggu AM' },
+    pending_hr: { variant: 'info', label: 'Menunggu HR' },
+    pending_lead: { variant: 'warning', label: 'Menunggu Lead' },
+    pending_coo: { variant: 'info', label: 'Menunggu COO' },
+    approved: { variant: 'success', label: 'Approved' },
+    rejected: { variant: 'danger', label: 'Rejected' },
 }
 
 export function RequestItem({
@@ -26,7 +30,7 @@ export function RequestItem({
     status,
     onClick,
 }: RequestItemProps) {
-    const statusInfo = statusConfig[status]
+    const statusInfo = statusConfig[status] || { variant: 'neutral' as const, label: status }
 
     return (
         <button
