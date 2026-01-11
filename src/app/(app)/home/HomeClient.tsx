@@ -55,9 +55,10 @@ export function HomeClient({ userName, userRole, initialAttendance, initialReque
         return () => clearInterval(interval)
     }, [])
 
+    const requests = initialRequests || []
     const filteredRequests = filter === 'All'
-        ? initialRequests
-        : initialRequests.filter((r) => r.status === filter.toLowerCase())
+        ? requests
+        : requests.filter((r) => r.status === filter.toLowerCase())
 
     const handleSuccess = (dailyData: DailyData | null) => {
         setLastSubmit(new Date())
