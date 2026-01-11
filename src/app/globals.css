@@ -1,0 +1,108 @@
+@import "tailwindcss";
+
+/* ============================================
+   DESIGN TOKENS (from design system.html)
+   ============================================ */
+:root {
+  /* Brand Colors */
+  --color-primary: #3D64F5;
+  --color-primary-dark: #2a4acb;
+  --color-accent-lime: #D5F85D;
+  
+  /* Backgrounds */
+  --color-bg-page: #F7FAFF;
+  --color-bg-surface: #FFFFFF;
+  
+  /* Text */
+  --color-text-main: #101828;
+  --color-text-sub: #667085;
+  
+  /* Borders */
+  --color-border-subtle: #EEF2F7;
+  
+  /* Status Colors */
+  --color-status-success-bg: #ECFDF3;
+  --color-status-success-text: #027A48;
+  --color-status-warning-bg: #FFFAEB;
+  --color-status-warning-text: #B54708;
+  --color-status-danger-bg: #FEF3F2;
+  --color-status-danger-text: #B42318;
+  --color-status-info-bg: #F0F9FF;
+  --color-status-info-text: #026AA2;
+}
+
+@theme inline {
+  /* Colors */
+  --color-primary: var(--color-primary);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-accent-lime: var(--color-accent-lime);
+  --color-bg-page: var(--color-bg-page);
+  --color-bg-surface: var(--color-bg-surface);
+  --color-text-main: var(--color-text-main);
+  --color-text-sub: var(--color-text-sub);
+  --color-border-subtle: var(--color-border-subtle);
+  
+  /* Status */
+  --color-success-bg: var(--color-status-success-bg);
+  --color-success-text: var(--color-status-success-text);
+  --color-warning-bg: var(--color-status-warning-bg);
+  --color-warning-text: var(--color-status-warning-text);
+  --color-danger-bg: var(--color-status-danger-bg);
+  --color-danger-text: var(--color-status-danger-text);
+  --color-info-bg: var(--color-status-info-bg);
+  --color-info-text: var(--color-status-info-text);
+
+  /* Shadows */
+  --shadow-soft: 0 4px 20px -2px rgba(61, 100, 245, 0.05), 0 2px 8px -2px rgba(0, 0, 0, 0.02);
+  --shadow-glow: 0 8px 30px -4px rgba(61, 100, 245, 0.2);
+  --shadow-float: 0 12px 32px -4px rgba(61, 100, 245, 0.15);
+
+  /* Font */
+  --font-display: "Inter", system-ui, sans-serif;
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+body {
+  font-family: var(--font-display);
+  background-color: var(--color-bg-page);
+  color: var(--color-text-main);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+.gradient-primary {
+  background: linear-gradient(135deg, #3D64F5 0%, #6E8BFF 100%);
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}

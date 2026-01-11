@@ -1,0 +1,2 @@
+# Placeholder for migrations
+# Run: supabase migration new <migration_name>
