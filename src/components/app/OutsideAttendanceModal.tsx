@@ -69,6 +69,14 @@ export function OutsideAttendanceModal({ isOpen, onClose, onSuccess }: Props) {
     useEffect(() => {
         if (isOpen) {
             fetchTodayStatus()
+            // Lock body scroll
+            document.body.style.overflow = 'hidden'
+        } else {
+            // Restore body scroll
+            document.body.style.overflow = ''
+        }
+        return () => {
+            document.body.style.overflow = ''
         }
     }, [isOpen])
 
@@ -163,15 +171,15 @@ export function OutsideAttendanceModal({ isOpen, onClose, onSuccess }: Props) {
     const canCheckOut = status.hasInToday && !status.hasOutToday
 
     return (
-        <div className="fixed inset-0 z-50 flex items-end sm:items-center justify-center">
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 overflow-y-auto">
             {/* Backdrop */}
             <div
-                className="absolute inset-0 bg-black/50 backdrop-blur-sm"
+                className="fixed inset-0 bg-black/50 backdrop-blur-sm"
                 onClick={handleClose}
             />
 
             {/* Modal */}
-            <div className="relative w-full sm:max-w-md bg-bg-surface rounded-t-3xl sm:rounded-2xl p-6 shadow-xl animate-in slide-in-from-bottom duration-300">
+            <div className="relative w-full max-w-md my-auto bg-bg-surface rounded-2xl p-6 shadow-xl animate-in fade-in zoom-in-95 duration-200">
                 {/* Header */}
                 <div className="flex items-center justify-between mb-6">
                     <div className="flex items-center gap-3">
@@ -231,10 +239,10 @@ export function OutsideAttendanceModal({ isOpen, onClose, onSuccess }: Props) {
                                     onClick={() => canCheckIn && setEventType('IN')}
                                     disabled={!canCheckIn}
                                     className={`flex items-center justify-center gap-2 p-4 rounded-xl border-2 transition-all ${!canCheckIn
-                                            ? 'border-border-subtle bg-bg-page text-text-sub opacity-50 cursor-not-allowed'
-                                            : eventType === 'IN'
-                                                ? 'border-primary bg-primary/5 text-primary'
-                                                : 'border-border-subtle text-text-sub hover:border-primary/50'
+                                        ? 'border-border-subtle bg-bg-page text-text-sub opacity-50 cursor-not-allowed'
+                                        : eventType === 'IN'
+                                            ? 'border-primary bg-primary/5 text-primary'
+                                            : 'border-border-subtle text-text-sub hover:border-primary/50'
                                         }`}
                                 >
                                     <LogIn className="w-5 h-5" />
@@ -246,10 +254,10 @@ export function OutsideAttendanceModal({ isOpen, onClose, onSuccess }: Props) {
                                     onClick={() => canCheckOut && setEventType('OUT')}
                                     disabled={!canCheckOut}
                                     className={`flex items-center justify-center gap-2 p-4 rounded-xl border-2 transition-all ${!canCheckOut
-                                            ? 'border-border-subtle bg-bg-page text-text-sub opacity-50 cursor-not-allowed'
-                                            : eventType === 'OUT'
-                                                ? 'border-primary bg-primary/5 text-primary'
-                                                : 'border-border-subtle text-text-sub hover:border-primary/50'
+                                        ? 'border-border-subtle bg-bg-page text-text-sub opacity-50 cursor-not-allowed'
+                                        : eventType === 'OUT'
+                                            ? 'border-primary bg-primary/5 text-primary'
+                                            : 'border-border-subtle text-text-sub hover:border-primary/50'
                                         }`}
                                 >
                                     <LogOut className="w-5 h-5" />

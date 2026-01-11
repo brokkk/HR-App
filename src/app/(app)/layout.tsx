@@ -10,7 +10,7 @@ export default async function AppLayout({
     await requireAuth()
 
     return (
-        <div className="relative mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg-page pb-20">
+        <div className="relative mx-auto flex min-h-screen w-full max-w-[480px] flex-col bg-bg-page">
             {children}
             <MobileNav />
         </div>

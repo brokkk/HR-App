@@ -85,7 +85,7 @@ export function ProfileClient({ initialProfile }: Props) {
     const displayName = profile.full_name || profile.email.split('@')[0]
 
     return (
-        <div className="px-6 py-6">
+        <div className="flex flex-col gap-5 px-5 pt-5 pb-24">
             <h1 className="text-xl font-bold text-text-main mb-6">Profile</h1>
 
             {/* Success Message */}

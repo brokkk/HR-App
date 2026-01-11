@@ -157,7 +157,7 @@ export default function NewRequestPage() {
                     <Button variant="ghost" size="icon" icon={ChevronLeft} />
                 </Link>
                 <div>
-                    <h1 className="text-2xl font-bold text-text-main">Permintaan Baru</h1>
+                    <h1 className="text-xl font-bold text-text-main">Permintaan Baru</h1>
                     <p className="text-sm text-text-sub">Ajukan cuti atau lembur</p>
                 </div>
             </div>

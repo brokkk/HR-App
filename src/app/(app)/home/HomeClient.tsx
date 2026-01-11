@@ -115,7 +115,7 @@ export function HomeClient({ userName, userRole, initialAttendance, initialReque
             <MobileHeader userName={userName} greeting={greeting} />
 
             {/* Primary Action Buttons */}
-            <section className="px-6 py-2 flex flex-col gap-3">
+            <section className="px-5 pt-4 flex flex-col gap-3">
                 <Button
                     onClick={() => setIsModalOpen(true)}
                     className="w-full py-4 bg-[#1e293b] hover:bg-[#334155] rounded-full shadow-lg"
@@ -155,7 +155,7 @@ export function HomeClient({ userName, userRole, initialAttendance, initialReque
             </section>
 
             {/* Today Overview Section */}
-            <section className="flex flex-col gap-4 px-6 py-6">
+            <section className="flex flex-col gap-4 px-5 py-5">
                 <StatCard
                     date={formatTodayDate()}
                     title="Attendance Today"
@@ -193,7 +193,7 @@ export function HomeClient({ userName, userRole, initialAttendance, initialReque
             </section>
 
             {/* Requests Section */}
-            <section className="flex flex-col gap-4 px-6 pb-6">
+            <section className="flex flex-col gap-4 px-5 pb-24">
                 <div className="flex items-center justify-between">
                     <h3 className="text-lg font-bold text-text-main">Requests</h3>
                     <Link href="/requests" className="text-sm font-semibold text-primary hover:text-primary-dark">

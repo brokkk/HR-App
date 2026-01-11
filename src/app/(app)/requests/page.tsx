@@ -145,7 +145,7 @@ export default function RequestsPage() {
     }
 
     return (
-        <div className="flex flex-col gap-4 p-4 pb-24">
+        <div className="flex flex-col gap-5 px-5 pt-5 pb-24">
             {/* Header */}
             <div className="flex items-center justify-between">
                 <div>

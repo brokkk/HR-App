@@ -60,7 +60,7 @@ export default async function AttendancePage() {
     // Error state (RLS or other)
     if (error) {
         return (
-            <div className="px-6 py-6">
+            <div className="flex flex-col gap-5 px-5 pt-5 pb-24">
                 <div className="flex items-center gap-3 mb-6">
                     <div className="w-10 h-10 bg-danger-bg rounded-full flex items-center justify-center">
                         <AlertCircle className="w-5 h-5 text-danger-text" />
@@ -81,7 +81,7 @@ export default async function AttendancePage() {
     // Empty state
     if (attendance.length === 0) {
         return (
-            <div className="px-6 py-6">
+            <div className="flex flex-col gap-5 px-5 pt-5 pb-24">
                 <div className="flex items-center gap-3 mb-6">
                     <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
                         <Calendar className="w-5 h-5 text-primary" />
@@ -104,7 +104,7 @@ export default async function AttendancePage() {
 
     // Data state
     return (
-        <div className="px-6 py-6">
+        <div className="flex flex-col gap-5 px-5 pt-5 pb-24">
             <div className="flex items-center gap-3 mb-6">
                 <div className="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
                     <Calendar className="w-5 h-5 text-primary" />

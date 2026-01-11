@@ -143,7 +143,7 @@ export default function NewLatePermissionPage() {
                     <Button variant="ghost" size="icon" icon={ChevronLeft} />
                 </Link>
                 <div>
-                    <h1 className="text-2xl font-bold text-text-main">Izin Datang Telat</h1>
+                    <h1 className="text-xl font-bold text-text-main">Izin Datang Telat</h1>
                     <p className="text-sm text-text-sub">Perlu approval Lead → COO</p>
                 </div>
             </div>
