@@ -2,6 +2,12 @@
 
 HR App is a Next.js 16 application for tracking attendance, handling employee requests and approvals, and exporting monthly reports. It uses Tailwind CSS and Supabase for authentication and data storage.
 
+## Try the attendance importer
+
+Use the [public CSV preview](https://hr-app-eosin.vercel.app/demo/attendance) to try the same CSV parser used by the attendance importer in your browser. The sample has three mapped rows, one unmatched employee ID, and one invalid timestamp. Edit the sample and select **Preview CSV** to see how the parser handles your changes.
+
+If your team evaluates HR App, you can share your setup and feedback in a [GitHub issue](https://github.com/brokkk/HR-App/issues/new). Include the workflow you tried and where you got stuck. Use synthetic data when sharing examples.
+
 ## Getting Started
 
 ### Prerequisites

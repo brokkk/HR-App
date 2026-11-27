@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Link from 'next/link'
 import { createClient } from '@/lib/supabase/client'
 import { Card, CardContent } from '@/components/ui/Card'
 import { Button } from '@/components/ui/Button'
@@ -187,6 +188,12 @@ export default function LoginPage() {
                         )}
                     </CardContent>
                 </Card>
+
+                <p className="mt-5 text-center text-sm">
+                    <Link href="/demo/attendance" className="font-medium text-primary underline">
+                        Coba demo impor absensi
+                    </Link>
+                </p>
 
                 {/* Footer */}
                 <p className="text-center text-xs text-text-sub mt-6">
