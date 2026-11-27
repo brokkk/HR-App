@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useSyncExternalStore } from 'react'
 
 type Theme = 'light' | 'dark'
 
@@ -11,6 +11,44 @@ interface ThemeContextType {
 }
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined)
+const systemThemeQuery = '(prefers-color-scheme: dark)'
+const themeChangeEvent = 'hr-app:theme-change'
+
+function getTheme(): Theme {
+    const savedTheme = window.localStorage.getItem('theme')
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+        return savedTheme
+    }
+    return window.matchMedia(systemThemeQuery).matches ? 'dark' : 'light'
+}
+
+function getServerTheme(): Theme {
+    return 'light'
+}
+
+function subscribeToTheme(onChange: () => void) {
+    const systemTheme = window.matchMedia(systemThemeQuery)
+    const onStorageChange = (event: StorageEvent) => {
+        if (event.key === 'theme' || event.key === null) {
+            onChange()
+        }
+    }
+
+    systemTheme.addEventListener('change', onChange)
+    window.addEventListener('storage', onStorageChange)
+    window.addEventListener(themeChangeEvent, onChange)
+
+    return () => {
+        systemTheme.removeEventListener('change', onChange)
+        window.removeEventListener('storage', onStorageChange)
+        window.removeEventListener(themeChangeEvent, onChange)
+    }
+}
+
+function setTheme(theme: Theme) {
+    window.localStorage.setItem('theme', theme)
+    window.dispatchEvent(new Event(themeChangeEvent))
+}
 
 export function useTheme() {
     const context = useContext(ThemeContext)
@@ -25,36 +63,14 @@ interface Props {
 }
 
 export function ThemeProvider({ children }: Props) {
-    const [theme, setThemeState] = useState<Theme>('light')
-    const [mounted, setMounted] = useState(false)
+    const theme = useSyncExternalStore(subscribeToTheme, getTheme, getServerTheme)
 
-    // Load theme from localStorage on mount
     useEffect(() => {
-        const savedTheme = localStorage.getItem('theme') as Theme | null
-        if (savedTheme && (savedTheme === 'light' || savedTheme === 'dark')) {
-            setThemeState(savedTheme)
-        } else {
-            // Check system preference
-            const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
-            setThemeState(prefersDark ? 'dark' : 'light')
-        }
-        setMounted(true)
-    }, [])
-
-    // Apply theme to document
-    useEffect(() => {
-        if (mounted) {
-            document.documentElement.setAttribute('data-theme', theme)
-            localStorage.setItem('theme', theme)
-        }
-    }, [theme, mounted])
-
-    const setTheme = (newTheme: Theme) => {
-        setThemeState(newTheme)
-    }
+        document.documentElement.setAttribute('data-theme', theme)
+    }, [theme])
 
     const toggleTheme = () => {
-        setThemeState(prev => prev === 'light' ? 'dark' : 'light')
+        setTheme(getTheme() === 'light' ? 'dark' : 'light')
     }
 
     return (

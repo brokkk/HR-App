@@ -190,7 +190,7 @@ export default function LoginPage() {
 
                 {/* Footer */}
                 <p className="text-center text-xs text-text-sub mt-6">
-                    © 2026 HR App. All rights reserved.
+                    © 2026 brokkk
                 </p>
             </div>
         </div>
